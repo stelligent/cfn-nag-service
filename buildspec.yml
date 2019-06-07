@@ -9,6 +9,7 @@ phases:
       - pip install --user aws-sam-cli
       - USER_BASE_PATH=$(python -m site --user-base)
       - export PATH=$PATH:$USER_BASE_PATH/bin
+      - bundle install
       - ruby tests/unit/test_handler.rb
   build:
     commands:
