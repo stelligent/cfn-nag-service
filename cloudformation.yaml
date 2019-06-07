@@ -110,6 +110,7 @@ Resources:
                 Version: 1
               Configuration:
                 ProjectName: !Ref BuildSAM
+                PrimarySource: SourceArtifacts
               InputArtifacts:
                 - Name: SourceArtifacts
               OutputArtifacts:
