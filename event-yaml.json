@@ -1,0 +1,62 @@
+{
+  "body": "{\"template_body\": \"LS0tClJlc291cmNlczoKICBzZ09wZW5JbmdyZXNzOgogICAgVHlwZTogQVdTOjpFQzI6OlNlY3VyaXR5R3JvdXAKICAgIFByb3BlcnRpZXM6CiAgICAgIEdyb3VwRGVzY3JpcHRpb246IHNvbWVfZ3JvdXBfZGVzYwogICAgICBWcGNJZDogdnBjLWRhM2MxMGJjCgogIHNlY3VyaXR5R3JvdXBJbmdyZXNzOgogICAgVHlwZTogQVdTOjpFQzI6OlNlY3VyaXR5R3JvdXBJbmdyZXNzCiAgICBQcm9wZXJ0aWVzOgogICAgICBHcm91cElkOgogICAgICAgIFJlZjogc2dPcGVuSW5ncmVzcwogICAgICBDaWRySXA6IDAuMC4wLjAvMAogICAgICBGcm9tUG9ydDogNDYKICAgICAgVG9Qb3J0OiA0NgogICAgICBJcFByb3RvY29sOiB0Y3AKCiAgc2dPcGVuSW5ncmVzczI6CiAgICBUeXBlOiBBV1M6OkVDMjo6U2VjdXJpdHlHcm91cAogICAgUHJvcGVydGllczoKICAgICAgR3JvdXBEZXNjcmlwdGlvbjogc29tZV9ncm91cF9kZXNjCiAgICAgIFZwY0lkOiB2cGMtZGEzYzEwYmMKICAgIE1ldGFkYXRhOgogICAgICBjZm5fbmFnOgogICAgICAgIHJ1bGVzX3RvX3N1cHByZXNzOgogICAgICAgICAgLSBpZDogVzIKICAgICAgICAgICAgcmVhc29uOiBUaGlzIHNlY3VyaXR5IGdyb3VwIGlzIGF0dGFjaGVkIHRvIGludGVybmV0LWZhY2luZyBFTEIKICAgICAgICAgIC0gaWQ6IFc5CiAgICAgICAgICAgIHJlYXNvbjogVHJ5aW5nIHRvIHByb3ZlIGEgcG9pbnQKICAgICAgICAgIC0gaWQ6IEYxMDAwCiAgICAgICAgICAgIHJlYXNvbjogVG8gZW5hYmxlIHNlbnNpdGl2ZSBkYXRhIGV4ZmlsdHJhdGlvbiA7KQogIHNlY3VyaXR5R3JvdXBJbmdyZXNzMjoKICAgIFR5cGU6IEFXUzo6RUMyOjpTZWN1cml0eUdyb3VwSW5ncmVzcwogICAgUHJvcGVydGllczoKICAgICAgR3JvdXBJZDoKICAgICAgICBSZWY6IHNnT3BlbkluZ3Jlc3MyCiAgICAgIENpZHJJcDogMC4wLjAuMC8wCiAgICAgIEZyb21Qb3J0OiA0NgogICAgICBUb1BvcnQ6IDQ2CiAgICAgIElwUHJvdG9jb2w6IHRjcAo\"}",
+  "resource": "/{proxy+}",
+  "path": "/path/to/resource",
+  "httpMethod": "POST",
+  "isBase64Encoded": false,
+  "queryStringParameters": {
+    "foo": "bar"
+  },
+  "pathParameters": {
+    "proxy": "/path/to/resource"
+  },
+  "stageVariables": {
+    "baz": "qux"
+  },
+  "headers": {
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Encoding": "gzip, deflate, sdch",
+    "Accept-Language": "en-US,en;q=0.8",
+    "Cache-Control": "max-age=0",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-Country": "US",
+    "Host": "1234567890.execute-api.us-east-1.amazonaws.com",
+    "Upgrade-Insecure-Requests": "1",
+    "User-Agent": "Custom User Agent String",
+    "Via": "1.1 08f323deadbeefa7af34d5feb414ce27.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "cDehVQoZnx43VYQb9j2-nvCh-9z396Uhbp027Y2JvkCPNLmGJHqlaA==",
+    "X-Forwarded-For": "127.0.0.1, 127.0.0.2",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "requestContext": {
+    "accountId": "123456789012",
+    "resourceId": "123456",
+    "stage": "prod",
+    "requestId": "c6af9ac6-7b61-11e6-9a41-93e8deadbeef",
+    "requestTime": "09/Apr/2015:12:34:56 +0000",
+    "requestTimeEpoch": 1428582896000,
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "accessKey": null,
+      "sourceIp": "127.0.0.1",
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "Custom User Agent String",
+      "user": null
+    },
+    "path": "/prod/path/to/resource",
+    "resourcePath": "/{proxy+}",
+    "httpMethod": "POST",
+    "apiId": "1234567890",
+    "protocol": "HTTP/1.1"
+  }
+}

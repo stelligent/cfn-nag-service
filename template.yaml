@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  sam-app
+
+  Sample SAM Template for cfn-nag
+
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  CfnNagFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./cfn_nag
+      Handler: handler.LambdaFunctions::Handler.process
+      Runtime: ruby2.5
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /scan
+            Method: post
+
+Outputs:
+  CfnNagApi:
+    Description: "API Gateway endpoint URL for Prod stage for CFN Nag function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/scan/"
+  CfnNagFunction:
+    Description: "CFN Nag Lambda Function ARN"
+    Value: !GetAtt CfnNagFunction.Arn
+  CfnNagFunctionIamRole:
+    Description: "Implicit IAM Role created for CfnNag function"
+    Value: !GetAtt CfnNagFunctionRole.Arn

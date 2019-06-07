@@ -1,3 +1,8 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'cfn-nag'
+gem "httparty"
+
+group :test do
+  gem "test-unit"
+  gem "mocha"
+end
