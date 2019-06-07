@@ -68,27 +68,27 @@ class CfnNagTest < Test::Unit::TestCase
   end
 
   def expected_result
-    {
-      body: {
-        failure_count: 1,
-        violations: [
-          {
-            id: 'W35',
-            type: 'WARN',
-            message: 'S3 Bucket should have access logging configured',
-            logical_resource_ids: ['S3Bucket'],
-            line_numbers: [5]
-          },
-          {
-            id: 'F14',
-            type: 'FAIL',
-            message: 'S3 Bucket should not have a public read-write acl',
-            logical_resource_ids: ['S3Bucket'],
-            line_numbers: [5]
-          }
-        ]
-      }
+    result = {
+      failure_count: 1,
+      violations: [
+        {
+          id: 'W35',
+          type: 'WARN',
+          message: 'S3 Bucket should have access logging configured',
+          logical_resource_ids: ['S3Bucket'],
+          line_numbers: [5]
+        },
+        {
+          id: 'F14',
+          type: 'FAIL',
+          message: 'S3 Bucket should not have a public read-write acl',
+          logical_resource_ids: ['S3Bucket'],
+          line_numbers: [5]
+        }
+      ]
     }.to_json
+
+    { "body" => result }
   end
 
   def test_lambda_handler

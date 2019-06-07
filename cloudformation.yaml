@@ -125,6 +125,7 @@ Resources:
                 ProjectName: !Ref DeploySAM
               InputArtifacts:
                 - Name: SourceArtifacts
+                - Name: BuildArtifacts
               OutputArtifacts:
                 - Name: DeployArtifacts
               RunOrder: 2
