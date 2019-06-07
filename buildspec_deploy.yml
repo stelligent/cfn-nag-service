@@ -10,6 +10,7 @@ phases:
       - export PATH=$PATH:$USER_BASE_PATH/bin
   build:
     commands:
+      - cd $CODEBUILD_SRC_DIR_BuildArtifacts
       - sam deploy --stack-name cfn-nag-service --template-file packaged-template.yaml --capabilities CAPABILITY_IAM
 artifacts:
     files:
