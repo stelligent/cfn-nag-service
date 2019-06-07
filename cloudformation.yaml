@@ -172,7 +172,7 @@ Resources:
                 Action:
                   - 'lambda:*'
                   - 'apigateway:*'
-                  - 'cloudwatch:*'
+                  - 'logs:*'
                   - 's3:*'
                   - 'cloudformation:*'
                   - 'codebuild:*'
