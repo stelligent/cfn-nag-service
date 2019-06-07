@@ -183,6 +183,7 @@ Resources:
               - Effect: Allow
                 Action:
                   - 'iam:PassRole'
+                  - 'iam:GetRole'
                 Resource: '*'
               - Effect: Allow
                 Action:
