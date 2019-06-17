@@ -6,13 +6,19 @@ Parameters:
   RepositoryName:
     Description: GitHub repository name
     Type: String
-    Default: test
+    Default: cfn-nag-service
   GitHubOwner:
     Type: String
+    Default: stelligent
   GitHubOAuthToken:
     Type: String
     NoEcho: true
 Resources:
+  DeploymentBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: stelligent-cfn-nag-service
+    DeletionPolicy: Delete
   CodePipelineArtifactStoreBucket:
     Type: 'AWS::S3::Bucket'
   CodePipelineArtifactStoreBucketPolicy:
@@ -182,8 +188,7 @@ Resources:
             Statement:
               - Effect: Allow
                 Action:
-                  - 'iam:PassRole'
-                  - 'iam:GetRole'
+                  - 'iam:*'
                 Resource: '*'
               - Effect: Allow
                 Action:
