@@ -15,7 +15,7 @@ Resources:
     Properties:
       CodeUri: ./cfn_nag
       Handler: handler.LambdaFunctions::Handler.process
-      Runtime: ruby2.6
+      Runtime: ruby2.5
       Events:
         HelloWorld:
           Type: Api
