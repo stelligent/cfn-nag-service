@@ -3,14 +3,12 @@ phases:
   install:
     runtime-versions:
       python: 3.7
-    commands:
-      - mkdir ~/.gnupg && echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf
-      - gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-      - curl -sSL https://get.rvm.io | bash -s stable
+      ruby: 2.6
   pre_build:
     commands:
-      - rvm install 2.5.3
-      - rvm use 2.5.3
+      - ruby -v
+      - rbenv install 2.5.3
+      - ruby -v
       - pip install --user aws-sam-cli
       - USER_BASE_PATH=$(python -m site --user-base)
       - export PATH=$PATH:$USER_BASE_PATH/bin
