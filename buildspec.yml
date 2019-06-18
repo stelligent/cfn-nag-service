@@ -3,9 +3,11 @@ phases:
   install:
     runtime-versions:
       python: 3.7
-      ruby: 2.6
   pre_build:
     commands:
+      - curl -sSL https://get.rvm.io | bash -s stable
+      - rvm install 2.5.3
+      - rvm use 2.5.3
       - pip install --user aws-sam-cli
       - USER_BASE_PATH=$(python -m site --user-base)
       - export PATH=$PATH:$USER_BASE_PATH/bin

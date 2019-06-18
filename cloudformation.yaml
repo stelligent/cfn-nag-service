@@ -64,7 +64,7 @@ Resources:
       Environment:
         Type: LINUX_CONTAINER
         ComputeType: BUILD_GENERAL1_SMALL
-        Image: aws/codebuild/ruby:2.5.3
+        Image: aws/codebuild/standard:2.0
       Source:
         Type: codepipeline
   DeploySAM:
