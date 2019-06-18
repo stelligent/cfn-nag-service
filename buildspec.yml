@@ -8,6 +8,7 @@ phases:
     commands:
       - ruby -v
       - rbenv install 2.5.3
+      - rbenv local 2.5.3
       - ruby -v
       - pip install --user aws-sam-cli
       - USER_BASE_PATH=$(python -m site --user-base)
