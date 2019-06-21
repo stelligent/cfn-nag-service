@@ -16,7 +16,7 @@ phases:
       - ruby tests/unit/test_handler.rb
   build:
     commands:
-      - sam build
+      - sam build --use-container
       - sam package --template-file .aws-sam/build/template.yaml     --s3-bucket stelligent-cfn-nag-service --output-template-file packaged-template.yaml
 artifacts:
     files:
