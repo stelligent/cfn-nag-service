@@ -4,11 +4,12 @@ phases:
     runtime-versions:
       python: 3.7
       ruby: 2.6
+      docker: 18
   pre_build:
     commands:
-      - rbenv install 2.5.5
-      - rbenv local 2.5.5
-      - gem install bundler
+      #- rbenv install 2.5.5
+      #- rbenv local 2.5.5
+      #- gem install bundler
       - pip install --user aws-sam-cli
       - USER_BASE_PATH=$(python -m site --user-base)
       - export PATH=$PATH:$USER_BASE_PATH/bin
