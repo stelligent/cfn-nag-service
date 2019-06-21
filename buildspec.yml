@@ -7,9 +7,6 @@ phases:
       docker: 18
   pre_build:
     commands:
-      #- rbenv install 2.5.5
-      #- rbenv local 2.5.5
-      #- gem install bundler
       - pip install --user aws-sam-cli
       - USER_BASE_PATH=$(python -m site --user-base)
       - export PATH=$PATH:$USER_BASE_PATH/bin
@@ -17,9 +14,8 @@ phases:
       - ruby tests/unit/test_handler.rb
   build:
     commands:
-      - docker image ls
       - sam build --use-container
-      - sam package --template-file .aws-sam/build/template.yaml     --s3-bucket stelligent-cfn-nag-service --output-template-file packaged-template.yaml
+      - sam package --template-file .aws-sam/build/template.yaml --s3-bucket stelligent-cfn-nag-service --output-template-file packaged-template.yaml
 artifacts:
     files:
       - '**/*'
