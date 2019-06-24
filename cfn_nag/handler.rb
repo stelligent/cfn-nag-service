@@ -40,26 +40,21 @@ module LambdaFunctions
           result_string
         end
 
-      return result_string unless param_truthy?(params['return_template']) ||
-                                  param_truthy?(params['return_rules'])
+      return_template = param_truthy?(params, 'return_template')
+      return_rules = param_truthy?(params, 'return_rules')
+      return result_string unless return_template || return_rules
 
       response = {
         'result' => result_string
       }
 
-      if param_truthy?(params['return_template'])
-        response['template'] = event['body']['template_body']
-      end
-
-      if param_truthy?(params['return_rules'])
-        response['rules'] = get_rules
-      end
-
+      response['template'] = event['body']['template_body'] if return_template
+      response['rules'] = get_rules if return_rules
       response
     end
 
-    def self.param_truthy?(param)
-      param.to_s.casecmp('true').zero?
+    def self.param_truthy?(params, param_name)
+      params.key?(param_name) && params[param_name].to_s.casecmp('true').zero?
     end
 
     def self.get_rules
