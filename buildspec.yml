@@ -11,7 +11,7 @@ phases:
       - USER_BASE_PATH=$(python -m site --user-base)
       - export PATH=$PATH:$USER_BASE_PATH/bin
       - bundle install
-      - apt-get install libsodium-dev
+      - apt-get install -y libsodium-dev
       - ruby tests/unit/test_handler.rb
   build:
     commands:
