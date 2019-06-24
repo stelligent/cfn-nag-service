@@ -2,7 +2,7 @@
 require 'cfn-nag'
 require 'base64'
 require 'json'
-require 'rbnacl'
+#require 'rbnacl'
 
 module LambdaFunctions
   class Handler
@@ -54,6 +54,7 @@ module LambdaFunctions
     end
 
     def self.param_truthy?(params, param_name)
+      return false if params.empty?
       params.key?(param_name) && params[param_name].to_s.casecmp('true').zero?
     end
 
