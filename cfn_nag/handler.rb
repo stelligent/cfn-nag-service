@@ -54,7 +54,7 @@ module LambdaFunctions
     end
 
     def self.param_truthy?(params, param_name)
-      return false if params.empty?
+      return false if params.nil? || params.empty?
       params.key?(param_name) && params[param_name].to_s.casecmp('true').zero?
     end
 
