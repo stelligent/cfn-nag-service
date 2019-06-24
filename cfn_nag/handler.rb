@@ -15,8 +15,11 @@ module LambdaFunctions
 
         result_string = scan_file(cfn_nag, template_body)
 
+        secure = event['resource'] == '/scan_secure' ? true : false
+        response = build_response(result_string, secure)
+
         {
-          "body" => result_string
+          "body" => response
         }
     rescue StandardError => error
       {
@@ -27,6 +30,14 @@ module LambdaFunctions
           "event": event
         }.to_json.to_s
       }
+    end
+
+    def self.build_payload(result_string, secure = false)
+      if secure
+        "Not implemented yet"
+      else
+        result_string
+      end
     end
 
     def self.scan_file(cfn_nag, template_body)
