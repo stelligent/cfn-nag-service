@@ -2,7 +2,7 @@
 require 'cfn-nag'
 require 'base64'
 require 'json'
-require 'rbnacl'
+#require 'rbnacl'
 
 module LambdaFunctions
   class Handler
