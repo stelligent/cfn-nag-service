@@ -25,7 +25,7 @@ curl -d "{\"template_body\": \"`base64 $file`\"}" -H "Content-Type: application/
 ### Deployment
 
 ```
-sam build
+sam build --use-container
 sam package --template-file .aws-sam/build/template.yaml     --s3-bucket stelligent-cfn-nag-service --output-template-file packaged-template.yaml
 sam deploy --stack-name cfn-nag-service --template-file packaged-template.yaml --capabilities CAPABILITY_IAM
 ```

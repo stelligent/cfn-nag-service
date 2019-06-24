@@ -6,6 +6,7 @@ require 'json'
 module LambdaFunctions
   class Handler
     def self.process(event:,context:)
+        puts event.inspect
         body = JSON.parse(event['body'])
         template_body = Base64.decode64(body['template_body'])
         aggregate_results = []

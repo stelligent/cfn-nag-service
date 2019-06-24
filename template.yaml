@@ -17,10 +17,15 @@ Resources:
       Handler: handler.LambdaFunctions::Handler.process
       Runtime: ruby2.5
       Events:
-        HelloWorld:
+        Scan:
           Type: Api
           Properties:
             Path: /scan
+            Method: post
+        ScanSecure:
+          Type: Api
+          Properties:
+            Path: /scan_secure
             Method: post
 
 Outputs:
