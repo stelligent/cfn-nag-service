@@ -32,7 +32,7 @@ module LambdaFunctions
       }
     end
 
-    def self.build_payload(result_string, secure = false)
+    def self.build_response(result_string, secure = false)
       if secure
         "Not implemented yet"
       else
