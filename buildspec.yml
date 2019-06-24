@@ -12,6 +12,7 @@ phases:
       - export PATH=$PATH:$USER_BASE_PATH/bin
       - bundle install
       - apt-get install -y libsodium-dev
+      - find / -name 'libsodium.so*' 2>/dev/null
       - ruby tests/unit/test_handler.rb
   build:
     commands:
