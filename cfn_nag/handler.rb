@@ -50,7 +50,7 @@ module LambdaFunctions
 
       response['template'] = event['body']['template_body'] if return_template
       response['rules'] = get_rules if return_rules
-      response
+      response.to_json.to_s
     end
 
     def self.param_truthy?(params, param_name)
