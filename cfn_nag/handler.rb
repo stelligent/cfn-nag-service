@@ -49,7 +49,7 @@ module LambdaFunctions
     end
 
     def self.sign_results(result_string)
-      signing_key = RbNaCl::SigningKey.generate\
+      signing_key = RbNaCl::SigningKey.generate
       signature = signing_key.sign(result_string.to_json.to_s)
       Base64.encode64 signature
     end
