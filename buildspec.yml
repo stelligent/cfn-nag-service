@@ -17,14 +17,14 @@ phases:
   build:
     commands:
       - mkdir -p lib/x86_64-linux-gnu
-      - cp /usr/lib/x86_64-linux-gnu/libsodium.so.23.1.0  lib/
-      - cp /usr/lib/x86_64-linux-gnu/libsodium.so.23.1.0  lib/x86_64-linux-gnu
-      - cd lib
+      - cp /usr/lib/x86_64-linux-gnu/libsodium.so.23.1.0  cfn_nag/lib/
+      #- cp /usr/lib/x86_64-linux-gnu/libsodium.so.23.1.0  lib/x86_64-linux-gnu
+      - cd cfn_nag/lib/
       - ln libsodium.so.23.1.0 libsodium.so.23
       - ln libsodium.so.23.1.0 libsodium.so
-      - cd x86_64-linux-gnu
-      - ln libsodium.so.23.1.0 libsodium.so.23
-      - ln libsodium.so.23.1.0 libsodium.so
+      #- cd x86_64-linux-gnu
+      #- ln libsodium.so.23.1.0 libsodium.so.23
+      #- ln libsodium.so.23.1.0 libsodium.so
       - cd ../..
       - sam build --use-container
       - sam package --template-file .aws-sam/build/template.yaml --s3-bucket stelligent-cfn-nag-service --output-template-file packaged-template.yaml
