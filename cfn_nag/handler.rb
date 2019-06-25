@@ -35,7 +35,9 @@ module LambdaFunctions
       params = event['queryStringParameters']
       result_string =
         if event['resource'] == '/scan_secure'
-          'Not implemented yet'
+          signing_key = RbNaCl::SigningKey.generate
+          signature = signing_key.sign(result_string)
+          Base64.encode64 signature
         else
           result_string
         end
