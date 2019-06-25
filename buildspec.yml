@@ -15,8 +15,9 @@ phases:
       - ruby tests/unit/test_handler.rb
   build:
     commands:
-      - mkdir lib
-      - cp /usr/lib/x86_64-linux-gnu/libsodium.so* lib/
+      - mkdir -p lib/x86_64-linux-gnu
+      - cp /usr/lib/x86_64-linux-gnu/libsodium.so* $LAMBDA_RUNTIME_DIR/lib/
+      - cp /usr/lib/x86_64-linux-gnu/libsodium.so* $LAMBDA_RUNTIME_DIR/lib/x86_64-linux-gnu
       - sam build --use-container
       - sam package --template-file .aws-sam/build/template.yaml --s3-bucket stelligent-cfn-nag-service --output-template-file packaged-template.yaml
 artifacts:
