@@ -13,6 +13,7 @@ phases:
       - bundle install
       - apt-get install -y libsodium-dev
       - ruby tests/unit/test_handler.rb
+      - ls -al /usr/lib/x86_64-linux-gnu | grep sodium
   build:
     commands:
       - mkdir -p lib/x86_64-linux-gnu
