@@ -63,10 +63,11 @@ module LambdaFunctions
 
     def self.retrieve_signing_key
       ssm = Aws::SSM::Client.new(region: 'us-east-1')
-      encoded_key = ssm.get_parameter({
+      response = ssm.get_parameter({
         name: '/CfnNagService/signing_key',
         with_decryption: true
       })
+      encoded_key = response.parameter.value
       Base64.decode64 encoded_key
     end
 
