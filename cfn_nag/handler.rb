@@ -2,16 +2,11 @@
 require 'cfn-nag'
 require 'base64'
 require 'json'
-#require 'rbnacl'
+require 'rbnacl'
 
 module LambdaFunctions
   class Handler
     def self.process(event:,context:)
-        puts ENV['LD_LIBRARY_PATH']
-        puts Dir.getwd
-        Dir.glob("/opt/lib/**/*").each do |file|
-          puts file
-        end
         puts event.inspect
         body = JSON.parse(event['body'])
         template_body = Base64.decode64(body['template_body'])

@@ -17,7 +17,7 @@ Resources:
       Handler: handler.LambdaFunctions::Handler.process
       Runtime: ruby2.5
       Layers:
-        - arn:aws:lambda:us-east-1:324320755747:layer:libsodium:2
+        - arn:aws:lambda:us-east-1:324320755747:layer:libsodium:3
       Events:
         Scan:
           Type: Api
