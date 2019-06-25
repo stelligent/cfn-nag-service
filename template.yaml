@@ -18,6 +18,13 @@ Resources:
       Runtime: ruby2.5
       Layers:
         - !Ref LibSodiumLayer
+      Policies:
+       - Version: '2012-10-17'
+         Statement:
+           - Effect: Allow
+             Action:
+               - ssm:GetParameter
+             Resource: '*'
       Events:
         Scan:
           Type: Api
