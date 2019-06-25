@@ -3,3 +3,5 @@ Gemfile.lock
 .aws-sam/**
 packaged-template.yaml
 legacy_lambda/vendor/**
+lib/**
+*.zip
