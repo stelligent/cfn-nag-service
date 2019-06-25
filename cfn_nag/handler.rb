@@ -36,7 +36,7 @@ module LambdaFunctions
       result_string =
         if event['resource'] == '/scan_secure'
           signing_key = RbNaCl::SigningKey.generate
-          signature = signing_key.sign(result_string)
+          signature = signing_key.sign(result_string.to_json.to_s)
           Base64.encode64 signature
         else
           result_string
