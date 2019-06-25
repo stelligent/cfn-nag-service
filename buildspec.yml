@@ -25,6 +25,7 @@ phases:
       - cd x86_64-linux-gnu
       - ln libsodium.so.23.1.0 libsodium.so.23
       - ln libsodium.so.23.1.0 libsodium.so
+      - cd ../..
       - sam build --use-container
       - sam package --template-file .aws-sam/build/template.yaml --s3-bucket stelligent-cfn-nag-service --output-template-file packaged-template.yaml
 artifacts:
