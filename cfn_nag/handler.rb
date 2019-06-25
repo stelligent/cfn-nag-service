@@ -18,7 +18,7 @@ module LambdaFunctions
         response = build_response(result_string, event)
 
         {
-          "body" => response
+          "body" => response.to_json.to_s
         }
     rescue StandardError => error
       {
@@ -48,9 +48,9 @@ module LambdaFunctions
         'result' => result_string
       }
 
-      response['template'] = event['body']['template_body'] if return_template
+      response['template'] = JSON.parse(event['body'])['template_body'] if return_template
       response['rules'] = get_rules if return_rules
-      response.to_json.to_s
+      response
     end
 
     def self.param_truthy?(params, param_name)
@@ -60,8 +60,7 @@ module LambdaFunctions
 
     def self.get_rules
       custom_rule_loader = CustomRuleLoader.new
-      rules = custom_rule_loader.rule_definitions.rules
-      rules.to_json
+      custom_rule_loader.rule_definitions.rules
     end
 
     def self.scan_file(cfn_nag, template_body)
