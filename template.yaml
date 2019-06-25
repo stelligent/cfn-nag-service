@@ -17,7 +17,7 @@ Resources:
       Handler: handler.LambdaFunctions::Handler.process
       Runtime: ruby2.5
       Layers:
-        - arn:aws:lambda:us-east-1:324320755747:layer:libsodium:3
+        - !Ref LibSodiumLayer
       Events:
         Scan:
           Type: Api
@@ -29,6 +29,16 @@ Resources:
           Properties:
             Path: /scan_secure
             Method: post
+  LibSodiumLayer:
+    Type: AWS::Lambda::LayerVersion
+    Properties:
+      CompatibleRuntimes:
+        - ruby2.5
+      Content:
+        S3Bucket: stelligent-cfn-nag-service
+        S3Key: libsodium.zip
+      Description: Libsodium shared objects
+      LayerName: libsodium
 
 Outputs:
   CfnNagApi:
