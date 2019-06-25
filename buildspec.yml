@@ -16,7 +16,7 @@ phases:
       - ls -al /usr/lib/x86_64-linux-gnu | grep sodium
   build:
     commands:
-      - mkdir -p lib/x86_64-linux-gnu
+      - mkdir cfn_nag/lib/
       - cp /usr/lib/x86_64-linux-gnu/libsodium.so.23.1.0  cfn_nag/lib/
       #- cp /usr/lib/x86_64-linux-gnu/libsodium.so.23.1.0  lib/x86_64-linux-gnu
       - cd cfn_nag/lib/
