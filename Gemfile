@@ -1,10 +1,11 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "httparty"
+gem 'aws-sdk-ssm'
+gem 'httparty'
 
 group :test do
   gem 'cfn-nag'
   gem 'rbnacl'
-  gem "test-unit"
-  gem "mocha"
+  gem 'test-unit'
+  gem 'mocha'
 end

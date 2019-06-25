@@ -3,6 +3,7 @@ require 'cfn-nag'
 require 'base64'
 require 'json'
 require 'rbnacl'
+require 'aws-sdk-ssm'
 
 module LambdaFunctions
   class Handler
@@ -49,7 +50,8 @@ module LambdaFunctions
     end
 
     def self.sign_results(result_string)
-      signing_key = RbNaCl::SigningKey.generate
+      key_seed = retrieve_signing_key
+      signing_key = RbNaCl::SigningKey.new(key_seed)
       signature = signing_key.sign(result_string.to_json.to_s)
       Base64.encode64 signature
     end
@@ -57,6 +59,15 @@ module LambdaFunctions
     def self.param_truthy?(params, param_name)
       return false if params.nil? || params.empty?
       params.key?(param_name) && params[param_name].to_s.casecmp('true').zero?
+    end
+
+    def self.retrieve_signing_key
+      ssm = Aws::SSM::Client.new(region: 'us-east-1')
+      encoded_key = ssm.get_parameter({
+        name: '/CfnNagService/signing_key',
+        with_decryption: true
+      })
+      Base64.decode64 encoded_key
     end
 
     def self.get_rules
