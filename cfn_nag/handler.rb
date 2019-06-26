@@ -43,6 +43,7 @@ module LambdaFunctions
         'results' => result_string
       }
 
+      response['results_encoded'] = Base64.strict_encode64(results.to_json.to_s) if sign_request
       response['signature'] = sign_results(result_string) if sign_request
       response['template'] = JSON.parse(event['body'])['template_body'] if return_template
       response['rules'] = get_rules if return_rules
