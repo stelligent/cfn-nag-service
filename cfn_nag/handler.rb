@@ -53,7 +53,7 @@ module LambdaFunctions
       key_seed = retrieve_signing_key
       signing_key = RbNaCl::SigningKey.new(key_seed)
       signature = signing_key.sign(result_string.to_json.to_s)
-      Base64.encode64 signature
+      Base64.strict_encode64 signature
     end
 
     def self.param_truthy?(params, param_name)
