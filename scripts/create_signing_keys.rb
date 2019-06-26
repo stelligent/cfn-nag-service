@@ -5,9 +5,9 @@ require 'rbnacl'
 require 'aws-sdk-ssm'
 
 signing_key = RbNaCl::SigningKey.generate
-encoded_signing_key = Base64.encode64 signing_key
+encoded_signing_key = Base64.strict_encode64 signing_key
 verify_key = verify_key = signing_key.verify_key
-encoded_verify_key = Base64.encode64 verify_key
+encoded_verify_key = Base64.strict_encode64 verify_key
 
 ssm = Aws::SSM::Client.new(region: 'us-east-1')
 ssm.put_parameter({
