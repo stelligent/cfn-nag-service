@@ -36,6 +36,11 @@ Resources:
           Properties:
             Path: /scan_secure
             Method: post
+        Status:
+          Type: Api
+          Properties:
+            Path: /status
+            Method: GET
   LibSodiumLayer:
     Type: AWS::Lambda::LayerVersion
     Properties:
