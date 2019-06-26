@@ -13,7 +13,7 @@ module LambdaFunctions
         if event['resource'] == '/status'
           return {
             "body" => "Service is up!"
-          }.to_json.to_s
+          }
         end
 
         body = JSON.parse(event['body'])
