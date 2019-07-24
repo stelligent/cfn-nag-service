@@ -47,7 +47,7 @@ Resources:
       CompatibleRuntimes:
         - ruby2.5
       Content:
-        S3Bucket: stelligent-cfn-nag-service
+        S3Bucket: pmd-cfn-nag-1617
         S3Key: libsodium.zip
       Description: Libsodium shared objects
       LayerName: libsodium
