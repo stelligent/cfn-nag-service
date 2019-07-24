@@ -17,7 +17,7 @@ Resources:
   DeploymentBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: stelligent-cfn-nag-service
+      BucketName: !Ref AWS::StackName
     DeletionPolicy: Delete
   CodePipelineArtifactStoreBucket:
     Type: 'AWS::S3::Bucket'
