@@ -66,6 +66,10 @@ Resources:
         Type: LINUX_CONTAINER
         ComputeType: BUILD_GENERAL1_SMALL
         Image: aws/codebuild/standard:2.0
+        EnvironmentVariables:
+          - Name: S3_BUCKET_NAME
+            Value: !Ref AWS::StackName
+            Type: PLAINTEXT
       Source:
         Type: codepipeline
   DeploySAM:
@@ -79,6 +83,10 @@ Resources:
         Type: LINUX_CONTAINER
         ComputeType: BUILD_GENERAL1_SMALL
         Image: aws/codebuild/standard:2.0
+        EnvironmentVariables:
+          - Name: S3_BUCKET_NAME
+            Value: !Ref AWS::StackName
+            Type: PLAINTEXT
       Source:
         Type: codepipeline
         BuildSpec: buildspec_deploy.yml

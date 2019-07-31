@@ -9,6 +9,10 @@ Globals:
   Function:
     Timeout: 3
 
+Parameters:
+  S3Bucket:
+    Type: String
+
 Resources:
   CfnNagFunction:
     Type: AWS::Serverless::Function
@@ -47,7 +51,7 @@ Resources:
       CompatibleRuntimes:
         - ruby2.5
       Content:
-        S3Bucket: pmd-cfn-nag-1617
+        S3Bucket: !Ref 'S3Bucket'
         S3Key: libsodium.zip
       Description: Libsodium shared objects
       LayerName: libsodium

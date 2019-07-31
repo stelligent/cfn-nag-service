@@ -17,7 +17,7 @@ phases:
     commands:
       - ./scripts/extract_libsodium.sh
       - sam build --use-container
-      - sam package --template-file .aws-sam/build/template.yaml --s3-bucket pmd-cfn-nag-1617 --output-template-file packaged-template.yaml
+      - sam package --template-file .aws-sam/build/template.yaml --s3-bucket $S3_BUCKET_NAME --output-template-file packaged-template.yaml
 artifacts:
     files:
       - '**/*'

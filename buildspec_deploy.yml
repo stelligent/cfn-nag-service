@@ -11,7 +11,7 @@ phases:
   build:
     commands:
       - cd $CODEBUILD_SRC_DIR_BuildArtifacts
-      - sam deploy --stack-name cfn-nag-service --template-file packaged-template.yaml --capabilities CAPABILITY_IAM
+      - sam deploy --stack-name cfn-nag-service --template-file packaged-template.yaml --capabilities CAPABILITY_IAM --parameter-overrides "S3Bucket=$S3_BUCKET_NAME"
 artifacts:
     files:
       - '**/*'
