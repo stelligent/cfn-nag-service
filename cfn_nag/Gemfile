@@ -1,5 +1,0 @@
-source 'https://rubygems.org'
-
-gem 'aws-sdk-ssm'
-gem 'cfn-nag'
-gem 'rbnacl'
