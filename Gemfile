@@ -10,6 +10,9 @@ source 'https://rubygems.org'
 #   gem 'mocha'
 # end
 
+group :test do
+  gem 'rspec'
+end
 gem 'cfn-nag'
 gem 'rbnacl'
 gem 'sinatra'

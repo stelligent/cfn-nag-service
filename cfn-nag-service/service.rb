@@ -1,5 +1,6 @@
 require 'cfn-nag'
 require_relative 'signatures'
+require 'rbnacl'
 
 ##
 # The common source for a cfn-nag service (that both lambda and ECS/image should share)
@@ -21,8 +22,7 @@ class CfnNagService
   # @return Hash with body key that contains Hash of results
   #
   def scan(template_body)
-    audit_result = cfn_nag.audit(cloudformation_string: template_body)
-
+    audit_result = audit(cloudformation_string: template_body)
     response(audit_result)
   end
 
@@ -34,7 +34,7 @@ class CfnNagService
   # @return Hash with body key that contains Hash of results
   #
   def signed_scan(template_body)
-    audit_result = cfn_nag.audit(cloudformation_string: template_body)
+    audit_result = audit(cloudformation_string: template_body)
 
     signed_response(audit_result, template_body)
   end
@@ -49,6 +49,16 @@ class CfnNagService
   end
 
   private
+
+  def audit(cloudformation_string:)
+    audit_result = cfn_nag.audit(cloudformation_string: cloudformation_string)
+    audit_result[:violations] = convert_violation_objects_into_hashes audit_result
+    audit_result
+  end
+
+  def convert_violation_objects_into_hashes(audit_result)
+    audit_result[:violations].map(&:to_h)
+  end
 
   def cfn_nag
     config = CfnNagConfig.new

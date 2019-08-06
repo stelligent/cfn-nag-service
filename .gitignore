@@ -5,3 +5,4 @@ packaged-template.yaml
 legacy_lambda/vendor/**
 lib/libsodium.*
 *.zip
+sam_out

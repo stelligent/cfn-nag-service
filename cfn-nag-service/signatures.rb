@@ -20,8 +20,11 @@ class Signatures
   ##
   # Create a digital signature for a string in (strict) base64 encoding.
   #
+  # @param key_seed the binary form of the key
+  # @return base64 encoded version of the signature
+  #
   def self.sign(key_seed, string_to_sign)
-    signing_key = RbNaCl::SigningKey.new(Base64.decode64(key_seed))
+    signing_key = RbNaCl::SigningKey.new(key_seed)
     signature = signing_key.sign(string_to_sign)
     Base64.strict_encode64 signature
   end

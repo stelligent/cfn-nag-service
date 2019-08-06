@@ -1,9 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: >
-  sam-app
-
-  Sample SAM Template for cfn-nag
+Description: cfn-nag service running lambda behind API GW
 
 Globals:
   Function:
@@ -12,23 +9,29 @@ Globals:
 Parameters:
   S3Bucket:
     Type: String
+  SsmPathForKey:
+    Type: String
+    Default: '/CfnNagService/signing_key'
 
 Resources:
   CfnNagFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: ./cfn_nag
-      Handler: handler.LambdaFunctions::Handler.process
+      CodeUri: ./
+      Handler: cfn-nag-lambda/handler.Handler.process
       Runtime: ruby2.5
       Layers:
         - !Ref LibSodiumLayer
+      Environment:
+        Variables:
+          private_key_ssm_path: !Ref SsmPathForKey
       Policies:
        - Version: '2012-10-17'
          Statement:
            - Effect: Allow
              Action:
                - ssm:GetParameter
-             Resource: '*'
+             Resource: !Sub 'arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter${SsmPathForKey}'
       Events:
         Scan:
           Type: Api
@@ -38,7 +41,7 @@ Resources:
         ScanSecure:
           Type: Api
           Properties:
-            Path: /scan_secure
+            Path: /signed_scan
             Method: post
         Status:
           Type: Api
