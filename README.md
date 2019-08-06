@@ -97,7 +97,7 @@ The API exposed by the Docker endpoint is cfn_nag/v1/*
 
 ### Verifying Signatures
 
-When using the /scan_secure endpoint you can use the libsodium library to verify the signatures. An example ruby implementation is provided.
+When using the /signed_scan endpoint you can use the libsodium library to verify the signatures. An example ruby implementation is provided.
 
 ```
 $ ./scripts/verify_signature.rb
@@ -117,7 +117,7 @@ To deploy the Lambda, run `scripts/deploy_sam.sh` and consult the outputs for th
 To deploy the Docker container locally:
 
 docker build .
-docker run -p 4567:4567 -e 'private_key_override=<base64 signing_key>' -e use_https=self <image_id>
+docker run -p 4567:4567 -e 'private_key_override=...base64 signing_key...' -e use_https=self ...image_id...
 
 Then hit https://localhost:4567/cfn_nag/v1/status
 
