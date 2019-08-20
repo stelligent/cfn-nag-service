@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'aws-sdk-ssm'
 
 ##
@@ -5,7 +7,7 @@ require 'aws-sdk-ssm'
 #
 class PrivateKey
   def retrieve
-    return Base64.decode64 (ENV['private_key_override']) unless ENV['private_key_override'].nil? || ENV['private_key_override'] == ''
+    return Base64.decode64(ENV['private_key_override']) unless ENV['private_key_override'].nil? || ENV['private_key_override'] == ''
 
     retrieve_private_key_from_ssm
   end
@@ -27,4 +29,3 @@ class PrivateKey
     Base64.decode64 encoded_key
   end
 end
-

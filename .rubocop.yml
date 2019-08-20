@@ -12,6 +12,8 @@ Style/StringLiterals:
 
 Metrics/LineLength:
   Max: 120
+  Exclude:
+    - cfn-nag-service/private_key.rb
 
 Style/Documentation:
   Enabled: false
@@ -26,10 +28,10 @@ Style/InverseMethods:
   Enabled: false
 
 Metrics/MethodLength:
-  Max: 15
+  Enabled: false
 
 Metrics/AbcSize:
-  Max: 16
+  Max: 23
 
 Style/StderrPuts:
   Enabled: false
@@ -42,3 +44,25 @@ Gemspec/RequiredRubyVersion:
 
 Metrics/ClassLength:
   Max: 115
+
+Lint/IneffectiveAccessModifier:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+Layout/IndentFirstHashElement:
+  EnforcedStyle: consistent
+
+Style/RaiseArgs:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 8
+
+Lint/UnusedMethodArgument:
+  Exclude:
+    - cfn-nag-lambda/handler.rb
+
+Lint/UselessAssignment:
+  Enabled: false

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # handler.LambdaFunctions::Handler.process
 require 'base64'
 require 'json'
@@ -12,10 +14,10 @@ require 'cfn-nag-service/private_key'
 # For information on the required request/response interface for working with GW, see:
 # https://aws.amazon.com/premiumsupport/knowledge-center/malformed-502-api-gateway/
 class Handler
-  def self.process(event:,context:)
+  def self.process(event:, context:)
     if ENV['DEBUG']
       puts event.inspect
-      ENV.each { |k,v| puts "#{k}=#{v}" }
+      ENV.each { |k, v| puts "#{k}=#{v}" }
     end
 
     service = CfnNagService.new(private_key: private_key)
@@ -38,7 +40,7 @@ class Handler
 
     else
       error_response(
-        StandardError.new(msg="#{event['resource']} is not legit resource"),
+        StandardError.new(msg = "#{event['resource']} is not legit resource"),
         event
       )
     end
@@ -54,11 +56,11 @@ class Handler
 
   def self.valid_event?(event)
     if event['resource'].nil?
-      raise StandardError.new(msg='resource must be defined')
+      raise StandardError.new(msg = 'resource must be defined')
     end
 
     if event['body'].nil?
-      raise StandardError.new(msg='body must be defined')
+      raise StandardError.new(msg = 'body must be defined')
     end
   rescue StandardError => error
     error_response(error, event)

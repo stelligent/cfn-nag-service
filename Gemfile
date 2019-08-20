@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 # gem 'aws-sdk-ssm'
@@ -13,8 +15,8 @@ source 'https://rubygems.org'
 group :test do
   gem 'rspec'
 end
+gem 'aws-sdk-ssm'
 gem 'cfn-nag'
 gem 'rbnacl'
-gem 'sinatra'
-gem 'aws-sdk-ssm'
 gem 'rubocop', '~> 0.74.0', require: false
+gem 'sinatra'

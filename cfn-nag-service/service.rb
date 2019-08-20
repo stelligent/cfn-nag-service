@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'cfn-nag'
 require_relative 'signatures'
 require 'rbnacl'
