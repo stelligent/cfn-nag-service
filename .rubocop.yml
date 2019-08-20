@@ -1,0 +1,44 @@
+AllCops:
+  TargetRubyVersion: 2.5
+  Exclude:
+    - 'spec/**/*'
+    - 'vendor/**/*'
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Naming/FileName:
+  Enabled: false
+
+Style/InverseMethods:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/AbcSize:
+  Max: 16
+
+Style/StderrPuts:
+  Enabled: false
+
+Naming/RescuedExceptionsVariableName:
+  Enabled: false
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 115

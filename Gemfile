@@ -17,3 +17,4 @@ gem 'cfn-nag'
 gem 'rbnacl'
 gem 'sinatra'
 gem 'aws-sdk-ssm'
+gem 'rubocop', '~> 0.74.0', require: false

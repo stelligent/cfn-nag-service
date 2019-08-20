@@ -1,6 +1,19 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    ast (2.4.0)
+    aws-eventstream (1.0.3)
+    aws-partitions (1.203.0)
+    aws-sdk-core (3.63.0)
+      aws-eventstream (~> 1.0, >= 1.0.2)
+      aws-partitions (~> 1.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1.0)
+    aws-sdk-ssm (1.54.0)
+      aws-sdk-core (~> 3, >= 3.61.1)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.1.0)
+      aws-eventstream (~> 1.0, >= 1.0.2)
     cfn-model (0.4.0)
       kwalify (= 0.7.2)
       psych (~> 3)
@@ -12,7 +25,9 @@ GEM
       netaddr (~> 1.5.1)
       trollop (~> 2.1.2)
     colorize (0.8.1)
+    diff-lcs (1.3)
     ffi (1.11.1)
+    jaro_winkler (1.5.3)
     jmespath (1.3.1)
     kwalify (0.7.2)
     little-plugger (1.1.4)
@@ -22,12 +37,37 @@ GEM
     multi_json (1.13.1)
     mustermann (1.0.3)
     netaddr (1.5.1)
+    parallel (1.17.0)
+    parser (2.6.3.0)
+      ast (~> 2.4.0)
     psych (3.1.0)
     rack (2.0.7)
     rack-protection (2.0.5)
       rack
+    rainbow (3.0.0)
     rbnacl (7.0.0)
       ffi
+    rspec (3.8.0)
+      rspec-core (~> 3.8.0)
+      rspec-expectations (~> 3.8.0)
+      rspec-mocks (~> 3.8.0)
+    rspec-core (3.8.2)
+      rspec-support (~> 3.8.0)
+    rspec-expectations (3.8.4)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.8.0)
+    rspec-mocks (3.8.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.8.0)
+    rspec-support (3.8.2)
+    rubocop (0.74.0)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.6)
+      rainbow (>= 2.2.2, < 4.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 1.7)
+    ruby-progressbar (1.10.1)
     sinatra (2.0.5)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -35,13 +75,17 @@ GEM
       tilt (~> 2.0)
     tilt (2.0.9)
     trollop (2.1.3)
+    unicode-display_width (1.6.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk-ssm
   cfn-nag
   rbnacl
+  rspec
+  rubocop (~> 0.74.0)
   sinatra
 
 BUNDLED WITH
